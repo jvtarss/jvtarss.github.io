@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Link } from 'react-scroll';
-import { ArrowUp, GitHub, Linkedin } from 'lucide-react';
+import { ArrowUp, Github, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -46,7 +45,7 @@ const Footer = () => {
               className="social-icon"
               aria-label="GitHub"
             >
-              <GitHub size={20} />
+              <Github size={20} />
             </a>
             <a
               href="https://linkedin.com/in/username"

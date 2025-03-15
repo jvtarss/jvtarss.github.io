@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect, useRef } from 'react';
-import { ExternalLink, Filter, GitHub } from 'lucide-react';
+import { ExternalLink, Filter, Github } from 'lucide-react';
 
 interface ProjectType {
   id: number;
@@ -179,7 +178,7 @@ const Projects = () => {
                   rel="noreferrer"
                   className="glass-button px-4 py-2 rounded-lg flex items-center text-sm"
                 >
-                  <GitHub className="h-4 w-4 mr-2" />
+                  <Github className="h-4 w-4 mr-2" />
                   View Code
                 </a>
                 <a

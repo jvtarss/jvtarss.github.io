@@ -1,6 +1,5 @@
-
 import React, { useEffect, useRef } from 'react';
-import { GitHub, Linkedin, ArrowDown } from 'lucide-react';
+import { Github, Linkedin, ArrowDown } from 'lucide-react';
 import { Link } from 'react-scroll';
 
 const Hero = () => {
@@ -63,7 +62,7 @@ const Hero = () => {
                 className="social-icon"
                 aria-label="GitHub"
               >
-                <GitHub size={20} />
+                <Github size={20} />
               </a>
               <a
                 href="https://linkedin.com/in/username"
