@@ -1,9 +1,12 @@
+
 import React, { useEffect, useRef } from 'react';
 import { Github, Linkedin, ArrowDown } from 'lucide-react';
 import { Link } from 'react-scroll';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const { translations } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -34,7 +37,9 @@ const Hero = () => {
       className="min-h-screen flex flex-col justify-center relative overflow-hidden pt-20"
       ref={heroRef}
     >
+      {/* Animated background */}
       <div className="absolute top-0 left-0 w-full h-full">
+        <div id="bioinfoBg" className="absolute inset-0 z-0 opacity-20"></div>
         <div className="absolute top-20 left-[10%] w-72 h-72 bg-bio-accent/10 rounded-full filter blur-[80px]" />
         <div className="absolute bottom-[10%] right-[5%] w-96 h-96 bg-bio-accent/10 rounded-full filter blur-[100px]" />
       </div>
@@ -43,14 +48,14 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-8 animate-slide-up opacity-0" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
             <div>
-              <div className="inline-block glass-card py-1 px-3 rounded-full text-sm text-bio-accent mb-4 animate-pulse">
-                Bioinformatician & Bioprocess Engineer
+              <div className="inline-block glass-card py-1 px-3 rounded-full text-sm text-bio-accent mb-4 backdrop-blur-xl border border-white/10 animate-pulse">
+                {translations.heroSubtitle}
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
-                Hi, I'm <span className="text-bio-accent">João Teixeira</span>
+                {translations.heroTitle.split(" ")[0]} <span className="text-bio-accent">{translations.heroTitle.split(" ").slice(1).join(" ")}</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/80 max-w-2xl">
-                Combining computational biology with biotechnology to solve complex biological problems
+                {translations.heroDescription}
               </p>
             </div>
             
@@ -59,7 +64,7 @@ const Hero = () => {
                 href="https://github.com/username"
                 target="_blank"
                 rel="noreferrer"
-                className="social-icon"
+                className="social-icon backdrop-blur-xl border border-white/20 hover:border-bio-accent/50 transition-all duration-300"
                 aria-label="GitHub"
               >
                 <Github size={20} />
@@ -68,7 +73,7 @@ const Hero = () => {
                 href="https://linkedin.com/in/username"
                 target="_blank"
                 rel="noreferrer"
-                className="social-icon"
+                className="social-icon backdrop-blur-xl border border-white/20 hover:border-bio-accent/50 transition-all duration-300"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
@@ -82,9 +87,9 @@ const Hero = () => {
                 smooth={true}
                 duration={800}
                 offset={-70}
-                className="accent-button inline-flex items-center px-6 py-3 rounded-lg cursor-pointer"
+                className="accent-button inline-flex items-center px-6 py-3 rounded-lg cursor-pointer backdrop-blur-xl hover:shadow-[0_0_15px_rgba(70,255,140,0.5)] transition-all duration-500"
               >
-                Learn more
+                {translations.learnMore}
                 <ArrowDown className="ml-2 h-4 w-4" />
               </Link>
             </div>
@@ -93,12 +98,14 @@ const Hero = () => {
           <div className="lg:col-span-5 flex justify-center lg:justify-end animate-slide-in-right opacity-0" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
             <div className="relative">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-bio-accent/20 to-white/20 rounded-2xl blur opacity-75 animate-pulse"></div>
-              <div className="relative glass-card rounded-2xl overflow-hidden h-[400px] w-[300px] md:h-[500px] md:w-[350px] animate-float">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
-                  alt="João Teixeira"
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative glass-card rounded-2xl overflow-hidden h-[400px] w-[300px] md:h-[500px] md:w-[350px] animate-float backdrop-blur-xl border border-white/20 flex items-center justify-center">
+                <div className="text-white/50 text-center p-6">
+                  <div className="w-full h-full flex flex-col items-center justify-center">
+                    <div className="border-2 border-dashed border-white/30 rounded-xl w-full h-full flex items-center justify-center p-4">
+                      <span className="font-dm-mono">Photo here</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -112,7 +119,7 @@ const Hero = () => {
           smooth={true}
           duration={800}
           offset={-70}
-          className="w-10 h-10 rounded-full glass-button flex items-center justify-center cursor-pointer"
+          className="w-10 h-10 rounded-full glass-button flex items-center justify-center cursor-pointer backdrop-blur-xl border border-white/20 hover:border-bio-accent/30 transition-all duration-300"
         >
           <ArrowDown className="h-5 w-5 text-white" />
         </Link>

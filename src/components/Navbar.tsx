@@ -2,10 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { Menu, X } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { translations } = useLanguage();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -24,11 +27,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', to: 'home' },
-    { name: 'About', to: 'about' },
-    { name: 'Career', to: 'career' },
-    { name: 'Projects', to: 'projects' },
-    { name: 'Contact', to: 'contact' },
+    { name: translations.home, to: 'home' },
+    { name: translations.about, to: 'about' },
+    { name: translations.career, to: 'career' },
+    { name: translations.projects, to: 'projects' },
+    { name: translations.contact, to: 'contact' },
   ];
 
   return (
@@ -67,13 +70,15 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
+          <LanguageSwitcher />
         </div>
 
         {/* Mobile menu button */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center">
+          <LanguageSwitcher />
           <button
             onClick={toggleMenu}
-            className="text-white focus:outline-none"
+            className="text-white focus:outline-none ml-4"
             aria-label="Toggle menu"
           >
             {isOpen ? (
@@ -87,7 +92,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden fixed inset-0 top-16 glass-card bg-bio-dark/95 transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed inset-0 top-16 glass-card bg-bio-dark/95 backdrop-blur-xl transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

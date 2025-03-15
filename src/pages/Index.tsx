@@ -7,6 +7,8 @@ import Career from '../components/Career';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import BioinformaticsBackground from '../components/BioinformaticsBackground';
+import { LanguageProvider } from '../contexts/LanguageContext';
 
 const Index = () => {
   useEffect(() => {
@@ -15,15 +17,18 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-bio-dark">
-      <Navbar />
-      <Hero />
-      <About />
-      <Career />
-      <Projects />
-      <Contact />
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-bio-dark relative">
+        <BioinformaticsBackground />
+        <Navbar />
+        <Hero />
+        <About />
+        <Career />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 };
 

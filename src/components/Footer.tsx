@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-scroll';
 import { ArrowUp, Github, Linkedin } from 'lucide-react';
@@ -14,13 +15,13 @@ const Footer = () => {
           spy={true}
           smooth={true}
           duration={800}
-          className="w-12 h-12 rounded-full accent-button flex items-center justify-center cursor-pointer animate-pulse"
+          className="w-12 h-12 rounded-full accent-button flex items-center justify-center cursor-pointer animate-pulse backdrop-blur-md"
         >
           <ArrowUp className="h-5 w-5 text-bio-dark" />
         </Link>
       </div>
       
-      <div className="container mx-auto py-12 px-4">
+      <div className="container mx-auto py-12 px-4 backdrop-blur-sm bg-white/5 border-t border-white/10 rounded-t-3xl">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <Link
@@ -42,7 +43,7 @@ const Footer = () => {
               href="https://github.com/username"
               target="_blank"
               rel="noreferrer"
-              className="social-icon"
+              className="social-icon backdrop-blur-md hover:border-bio-accent/50 transition-all duration-300"
               aria-label="GitHub"
             >
               <Github size={20} />
@@ -51,7 +52,7 @@ const Footer = () => {
               href="https://linkedin.com/in/username"
               target="_blank"
               rel="noreferrer"
-              className="social-icon"
+              className="social-icon backdrop-blur-md hover:border-bio-accent/50 transition-all duration-300"
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />

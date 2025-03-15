@@ -1,69 +1,77 @@
-# Welcome to your Lovable project
 
-## Project info
+# 🧬 BioPortfolio - João Teixeira
 
-**URL**: https://lovable.dev/projects/ffce6df0-372f-45bf-b452-493d696d0bcf
+A modern, responsive portfolio website for bioinformaticians and bioprocess engineers, featuring a sleek design with glassmorphism elements, smooth animations, and bilingual support.
 
-## How can I edit this code?
+## ✨ Features
 
-There are several ways of editing your application.
+- **Responsive Design**: Looks great on all devices
+- **Glassmorphism UI**: Modern, translucent interface elements
+- **Bilingual Support**: Toggle between English and Portuguese
+- **Bioinformatics Theme**: DNA and statistical data animated background
+- **Smooth Animations**: Fluid transitions and interactions
+- **Customizable**: Easy to personalize with your own information
+- **Optimized Performance**: Fast loading and smooth scrolling
 
-**Use Lovable**
+## 🚀 Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ffce6df0-372f-45bf-b452-493d696d0bcf) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (v14 or newer)
+- npm or yarn
 
-**Use your preferred IDE**
+### Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. Clone this repository:
+   ```bash
+   git clone <repository-url>
+   cd bioportfolio
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
 
-Follow these steps:
+3. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+4. Open your browser and navigate to `http://localhost:5173`
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🎨 Customization
 
-# Step 3: Install the necessary dependencies.
-npm i
+See [CUSTOMIZATION.md](./CUSTOMIZATION.md) for detailed instructions on:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- Adding your photo
+- Creating and using a custom logo
+- Updating social media links
+- Modifying the animated background
+- Translating and updating text content
 
-**Edit a file directly in GitHub**
+## 🛠️ Built With
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- [React](https://reactjs.org/) - Frontend library
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Lucide Icons](https://lucide.dev/) - Beautiful icons
+- [React Scroll](https://www.npmjs.com/package/react-scroll) - Smooth scrolling
 
-**Use GitHub Codespaces**
+## 📄 License
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## What technologies are used for this project?
+## 🙏 Acknowledgments
 
-This project is built with .
+- Font families: DM Mono and DM Sans from Google Fonts
+- Background animations inspired by bioinformatics visualizations
+- Color scheme inspired by modern scientific interfaces
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/ffce6df0-372f-45bf-b452-493d696d0bcf) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+Made with ❤️ by [João Teixeira](https://github.com/username)

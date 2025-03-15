@@ -98,6 +98,10 @@
     @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl;
   }
   
+  .neo-glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_8px_32px_0_rgba(31,38,135,0.1)];
+  }
+  
   .glass-nav {
     @apply bg-bio-dark/80 backdrop-blur-lg border-b border-white/10;
   }
@@ -107,7 +111,7 @@
   }
   
   .accent-button {
-    @apply backdrop-blur-md bg-bio-accent/90 text-bio-dark font-medium hover:bg-bio-accent transition-all duration-300;
+    @apply backdrop-blur-md bg-bio-accent/90 text-bio-dark font-medium hover:bg-bio-accent transition-all duration-300 shadow-[0_0_10px_rgba(70,255,140,0.3)] hover:shadow-[0_0_20px_rgba(70,255,140,0.5)];
   }
   
   .nav-link {
@@ -119,11 +123,11 @@
   }
   
   .social-icon {
-    @apply w-10 h-10 flex items-center justify-center rounded-full glass-button hover:text-bio-accent;
+    @apply w-10 h-10 flex items-center justify-center rounded-full glass-button hover:text-bio-accent hover:scale-110 transition-all duration-300;
   }
   
   .card-hover {
-    @apply transition-all duration-500 hover:translate-y-[-10px];
+    @apply transition-all duration-500 hover:translate-y-[-10px] hover:shadow-[0_10px_25px_-5px_rgba(70,255,140,0.1)];
   }
   
   .section-padding {
@@ -131,12 +135,36 @@
   }
   
   .tech-badge {
-    @apply px-3 py-1 rounded-full text-sm glass-button;
+    @apply px-3 py-1 rounded-full text-sm glass-button hover:border-bio-accent/30 transition-all duration-300;
   }
   
   .project-card {
-    @apply relative overflow-hidden glass-card p-6 card-hover;
+    @apply relative overflow-hidden glass-card p-6 card-hover backdrop-blur-xl border border-white/10 hover:border-bio-accent/20;
   }
+}
+
+/* Enhanced animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 rgba(70, 255, 140, 0.6); }
+  50% { opacity: 0.8; box-shadow: 0 0 20px rgba(70, 255, 140, 0.4); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(70, 255, 140, 0.6); }
+  50% { box-shadow: 0 0 20px rgba(70, 255, 140, 0.8); }
+}
+
+.animate-float {
+  animation: float 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
 }
 
 /* Scrollbar */

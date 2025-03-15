@@ -1,9 +1,11 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Briefcase, GraduationCap, Calendar } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Career = () => {
   const careerRef = useRef<HTMLDivElement>(null);
+  const { translations } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -73,10 +75,10 @@ const Career = () => {
     <section id="career" className="section-padding bg-bio-dark/50" ref={careerRef}>
       <div className="container mx-auto">
         <div className="mb-16 text-center animate-on-scroll opacity-0">
-          <span className="inline-block glass-card py-1 px-3 rounded-full text-sm text-bio-accent mb-3">
-            Career
+          <span className="inline-block glass-card py-1 px-3 rounded-full text-sm text-bio-accent mb-3 backdrop-blur-xl border border-white/20">
+            {translations.careerTitle}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Education & Experience</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">{translations.careerSubtitle}</h2>
           <div className="h-1 w-20 bg-bio-accent mx-auto rounded-full"></div>
         </div>
 
@@ -94,9 +96,9 @@ const Career = () => {
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="md:w-1/2 flex justify-center md:justify-end md:pr-12 mb-6 md:mb-0">
-                  <div className="glass-card p-6 rounded-xl w-full max-w-md transform transition-all duration-500 hover:scale-105">
+                  <div className="neo-glass-card p-6 rounded-xl w-full max-w-md transform transition-all duration-500 hover:scale-105 backdrop-blur-xl border border-white/10 hover:border-bio-accent/30">
                     <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 rounded-full glass-button flex items-center justify-center mr-4">
+                      <div className="w-12 h-12 rounded-full glass-button flex items-center justify-center mr-4 backdrop-blur-xl border border-white/20">
                         {item.icon}
                       </div>
                       <div>
@@ -115,12 +117,12 @@ const Career = () => {
 
                 <div className="md:w-1/2 flex items-center md:justify-start relative">
                   {/* Circle on timeline */}
-                  <div className="absolute left-0 md:left-auto md:right-0 top-0 w-10 h-10 rounded-full glass-card flex items-center justify-center border-4 border-bio-dark bg-bio-accent/20 z-10">
-                    <div className="w-3 h-3 rounded-full bg-bio-accent"></div>
+                  <div className="absolute left-0 md:left-auto md:right-0 top-0 w-10 h-10 rounded-full neo-glass-card flex items-center justify-center border-4 border-bio-dark bg-bio-accent/20 z-10 backdrop-blur-xl">
+                    <div className="w-3 h-3 rounded-full bg-bio-accent animate-pulse"></div>
                   </div>
                   
                   {/* Only show logos on bigger screens and on appropriate side */}
-                  <div className="hidden md:block md:w-[120px] md:h-[120px] glass-card rounded-full p-4 overflow-hidden ml-8 md:ml-0 md:mr-8">
+                  <div className="hidden md:block md:w-[120px] md:h-[120px] neo-glass-card rounded-full p-4 overflow-hidden ml-8 md:ml-0 md:mr-8 backdrop-blur-xl border border-white/20 hover:border-bio-accent/30 transition-all duration-300">
                     <img 
                       src={item.logo} 
                       alt={item.organization} 
