@@ -34,7 +34,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center relative overflow-hidden pt-20"
+      className="min-h-screen flex flex-col justify-center relative overflow-hidden pt-16 pl-0 md:pl-16 lg:pl-64"
       ref={heroRef}
     >
       {/* Animated background */}
@@ -57,6 +57,11 @@ const Hero = () => {
               <p className="text-xl md:text-2xl text-white/80 max-w-2xl">
                 {translations.heroDescription}
               </p>
+            </div>
+            
+            <div className="flex flex-wrap gap-3 py-4">
+              <img src="https://skillicons.dev/icons?i=react,ts,nodejs,python" alt="Skills" className="animate-fade-in" style={{ animationDelay: '0.4s' }} />
+              <img src="https://skillicons.dev/icons?i=tailwind,figma,docker,aws" alt="More Skills" className="animate-fade-in" style={{ animationDelay: '0.6s' }} />
             </div>
             
             <div className="flex space-x-4">
@@ -87,7 +92,7 @@ const Hero = () => {
                 smooth={true}
                 duration={800}
                 offset={-70}
-                className="accent-button inline-flex items-center px-6 py-3 rounded-lg cursor-pointer backdrop-blur-xl hover:shadow-[0_0_15px_rgba(70,255,140,0.5)] transition-all duration-500"
+                className="accent-button inline-flex items-center px-6 py-3 rounded-lg cursor-pointer backdrop-blur-xl hover:shadow-[0_0_15px_rgba(144,255,52,0.5)] transition-all duration-500"
               >
                 {translations.learnMore}
                 <ArrowDown className="ml-2 h-4 w-4" />

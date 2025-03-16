@@ -36,14 +36,14 @@
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 159 100% 8%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary: 104 100% 60%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 159 60% 15%;
+    --sidebar-accent-foreground: 104 100% 60%;
+    --sidebar-border: 159 30% 15%;
+    --sidebar-ring: 104 100% 60%;
   }
 
   .dark {
@@ -110,7 +110,7 @@
   }
   
   .accent-button {
-    @apply backdrop-blur-md bg-bio-accent/90 text-bio-dark font-medium hover:bg-bio-accent transition-all duration-300 shadow-[0_0_10px_rgba(70,255,140,0.3)] hover:shadow-[0_0_20px_rgba(70,255,140,0.5)];
+    @apply backdrop-blur-md bg-bio-accent/90 text-bio-dark font-medium hover:bg-bio-accent transition-all duration-300 shadow-[0_0_10px_rgba(144,255,52,0.3)] hover:shadow-[0_0_20px_rgba(144,255,52,0.5)];
   }
   
   .nav-link {
@@ -126,7 +126,7 @@
   }
   
   .card-hover {
-    @apply transition-all duration-500 hover:translate-y-[-10px] hover:shadow-[0_10px_25px_-5px_rgba(70,255,140,0.1)];
+    @apply transition-all duration-500 hover:translate-y-[-10px] hover:shadow-[0_10px_25px_-5px_rgba(144,255,52,0.1)];
   }
   
   .section-padding {
@@ -139,6 +139,14 @@
   
   .project-card {
     @apply relative overflow-hidden glass-card p-6 card-hover backdrop-blur-xl border border-white/10 hover:border-bio-accent/20;
+  }
+
+  .sidebar-menu-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-md transition-all duration-300 hover:bg-bio-accent/10 hover:text-bio-accent;
+  }
+
+  .sidebar-menu-item-active {
+    @apply bg-bio-accent/20 text-bio-accent font-medium;
   }
 }
 
@@ -174,7 +182,7 @@
   left: -4px;
   right: -4px;
   height: 10px;
-  background-color: #46FF8C;
+  background-color: #90FF34;
   border-radius: 5px;
   animation: dna-rotation 4s linear infinite reverse;
   z-index: 1;
@@ -350,14 +358,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #001931;
+  background: #002522;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(70, 255, 140, 0.3);
+  background: rgba(144, 255, 52, 0.3);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(70, 255, 140, 0.5);
+  background: rgba(144, 255, 52, 0.5);
 }

@@ -8,6 +8,7 @@ import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import BioinformaticsBackground from '../components/BioinformaticsBackground';
+import Sidebar from '../components/Sidebar';
 import { LanguageProvider } from '../contexts/LanguageContext';
 
 const Index = () => {
@@ -20,7 +21,7 @@ const Index = () => {
     <LanguageProvider>
       <div className="min-h-screen bg-bio-dark relative">
         <BioinformaticsBackground />
-        <Navbar />
+        <Sidebar />
         <Hero />
         <About />
         <Career />

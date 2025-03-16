@@ -63,10 +63,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors
+				// Updated custom colors based on the new palette
 				bio: {
-					dark: "#001931",
-					accent: "#46FF8C", 
+					dark: "#002522",
+					accent: "#90FF34", 
 					white: "#FFFFFF"
 				}
 			},
@@ -117,8 +117,8 @@ export default {
 					'50%': { opacity: '0.5' },
 				},
 				glow: {
-					'0%, 100%': { boxShadow: '0 0 5px rgba(70, 255, 140, 0.6)' },
-					'50%': { boxShadow: '0 0 20px rgba(70, 255, 140, 0.8)' },
+					'0%, 100%': { boxShadow: '0 0 5px rgba(144, 255, 52, 0.6)' },
+					'50%': { boxShadow: '0 0 20px rgba(144, 255, 52, 0.8)' },
 				},
 			},
 			animation: {
