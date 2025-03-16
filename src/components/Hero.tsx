@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Github, Linkedin, ArrowDown } from 'lucide-react';
+import { Github, Linkedin, ArrowDown, Code, GraduationCap, Flask } from 'lucide-react';
 import { Link } from 'react-scroll';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -37,13 +37,6 @@ const Hero = () => {
       className="min-h-screen flex flex-col justify-center relative overflow-hidden pt-16 pl-0 md:pl-16 lg:pl-64"
       ref={heroRef}
     >
-      {/* Animated background */}
-      <div className="absolute top-0 left-0 w-full h-full">
-        <div id="bioinfoBg" className="absolute inset-0 z-0 opacity-20"></div>
-        <div className="absolute top-20 left-[10%] w-72 h-72 bg-bio-accent/10 rounded-full filter blur-[80px]" />
-        <div className="absolute bottom-[10%] right-[5%] w-96 h-96 bg-bio-accent/10 rounded-full filter blur-[100px]" />
-      </div>
-      
       <div className="container mx-auto px-4 md:px-6 relative z-10 transition-opacity duration-1000 opacity-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-8 animate-slide-up opacity-0" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
@@ -59,9 +52,32 @@ const Hero = () => {
               </p>
             </div>
             
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-wrap gap-3">
+                <div className="glass-card p-3 rounded-lg backdrop-blur-xl border border-white/10 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                  <div className="flex items-center gap-2 text-bio-accent">
+                    <Code className="h-5 w-5" />
+                    <span className="font-medium">Full Stack Development</span>
+                  </div>
+                </div>
+                <div className="glass-card p-3 rounded-lg backdrop-blur-xl border border-white/10 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+                  <div className="flex items-center gap-2 text-bio-accent">
+                    <GraduationCap className="h-5 w-5" />
+                    <span className="font-medium">Bioinformatics</span>
+                  </div>
+                </div>
+                <div className="glass-card p-3 rounded-lg backdrop-blur-xl border border-white/10 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+                  <div className="flex items-center gap-2 text-bio-accent">
+                    <Flask className="h-5 w-5" />
+                    <span className="font-medium">Bioprocess Engineering</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             <div className="flex flex-wrap gap-3 py-4">
-              <img src="https://skillicons.dev/icons?i=react,ts,nodejs,python" alt="Skills" className="animate-fade-in" style={{ animationDelay: '0.4s' }} />
-              <img src="https://skillicons.dev/icons?i=tailwind,figma,docker,aws" alt="More Skills" className="animate-fade-in" style={{ animationDelay: '0.6s' }} />
+              <img src="https://skillicons.dev/icons?i=react,ts,nodejs,python" alt="Skills" className="animate-fade-in" style={{ animationDelay: '0.7s' }} />
+              <img src="https://skillicons.dev/icons?i=tailwind,figma,docker,aws" alt="More Skills" className="animate-fade-in" style={{ animationDelay: '0.8s' }} />
             </div>
             
             <div className="flex space-x-4">
@@ -103,12 +119,17 @@ const Hero = () => {
           <div className="lg:col-span-5 flex justify-center lg:justify-end animate-slide-in-right opacity-0" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
             <div className="relative">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-bio-accent/20 to-white/20 rounded-2xl blur opacity-75 animate-pulse"></div>
-              <div className="relative glass-card rounded-2xl overflow-hidden h-[400px] w-[300px] md:h-[500px] md:w-[350px] animate-float backdrop-blur-xl border border-white/20 flex items-center justify-center">
-                <div className="text-white/50 text-center p-6">
-                  <div className="w-full h-full flex flex-col items-center justify-center">
-                    <div className="border-2 border-dashed border-white/30 rounded-xl w-full h-full flex items-center justify-center p-4">
-                      <span className="font-dm-mono">Photo here</span>
+              <div className="relative glass-card rounded-2xl overflow-hidden h-[400px] w-[300px] md:h-[500px] md:w-[350px] animate-float backdrop-blur-xl border border-white/20">
+                <div className="w-full h-full p-6 flex flex-col items-center justify-center gap-8">
+                  <div className="w-full h-2/3 glass-card rounded-xl overflow-hidden relative">
+                    <div className="absolute inset-0 flex items-center justify-center text-white/50 font-dm-mono">
+                      Profile Image
                     </div>
+                  </div>
+                  <div className="w-full space-y-3">
+                    <div className="h-8 w-full glass-card rounded-md animate-pulse"></div>
+                    <div className="h-4 w-2/3 glass-card rounded-md animate-pulse"></div>
+                    <div className="h-4 w-full glass-card rounded-md animate-pulse"></div>
                   </div>
                 </div>
               </div>

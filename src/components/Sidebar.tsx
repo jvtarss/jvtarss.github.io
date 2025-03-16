@@ -8,13 +8,14 @@ import {
   User, 
   Briefcase, 
   FolderKanban, 
-  MessageSquare 
+  MessageSquare,
+  Globe
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const { translations } = useLanguage();
+  const { translations, toggleLanguage, language } = useLanguage();
 
   const menuItems = [
     { 
@@ -90,6 +91,18 @@ const Sidebar = () => {
               </li>
             ))}
           </ul>
+        </div>
+        
+        {/* Language Toggle */}
+        <div className="px-2 pt-4 border-t border-white/10 mt-4">
+          <button
+            onClick={toggleLanguage}
+            className={`w-full sidebar-menu-item ${isCollapsed ? 'justify-center px-2' : ''}`}
+            aria-label={`Switch to ${language === 'en' ? 'Portuguese' : 'English'}`}
+          >
+            <Globe className="h-5 w-5 text-bio-accent" />
+            {!isCollapsed && <span>{translations.switchLanguage}</span>}
+          </button>
         </div>
       </div>
     </div>

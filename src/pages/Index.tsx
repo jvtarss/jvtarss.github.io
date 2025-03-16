@@ -21,6 +21,7 @@ const Index = () => {
     <LanguageProvider>
       <div className="min-h-screen bg-bio-dark relative">
         <BioinformaticsBackground />
+        <Navbar />
         <Sidebar />
         <Hero />
         <About />
