@@ -1,6 +1,5 @@
 
 import React, { useEffect } from 'react';
-import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Career from '../components/Career';
@@ -21,7 +20,6 @@ const Index = () => {
     <LanguageProvider>
       <div className="min-h-screen bg-bio-dark relative">
         <BioinformaticsBackground />
-        <Navbar />
         <Sidebar />
         <Hero />
         <About />
