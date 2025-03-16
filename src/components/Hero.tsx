@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Github, Linkedin, ArrowDown, Code, GraduationCap, Flask } from 'lucide-react';
+import { Github, Linkedin, ArrowDown, Code, GraduationCap, Beaker } from 'lucide-react';
 import { Link } from 'react-scroll';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -68,7 +68,7 @@ const Hero = () => {
                 </div>
                 <div className="glass-card p-3 rounded-lg backdrop-blur-xl border border-white/10 animate-fade-in" style={{ animationDelay: '0.6s' }}>
                   <div className="flex items-center gap-2 text-bio-accent">
-                    <Flask className="h-5 w-5" />
+                    <Beaker className="h-5 w-5" />
                     <span className="font-medium">Bioprocess Engineering</span>
                   </div>
                 </div>
