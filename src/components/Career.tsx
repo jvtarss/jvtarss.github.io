@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Briefcase, GraduationCap, Calendar } from 'lucide-react';
+import { Briefcase, GraduationCap, Calendar, MapPin } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Career = () => {
@@ -75,7 +75,7 @@ const Career = () => {
     <section id="career" className="section-padding bg-bio-dark/50" ref={careerRef}>
       <div className="container mx-auto">
         <div className="mb-16 text-center animate-on-scroll opacity-0">
-          <span className="inline-block glass-card py-1 px-3 rounded-full text-sm text-bio-accent mb-3 backdrop-blur-xl border border-white/20">
+          <span className="inline-block glass-card py-1 px-3 rounded-full text-sm text-bio-accent mb-3 backdrop-blur-xl border border-white/20 hover:border-bio-accent/40 hover:shadow-[0_0_10px_rgba(144,255,52,0.3)] transition-all duration-300">
             {translations.careerTitle}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">{translations.careerSubtitle}</h2>
@@ -84,21 +84,21 @@ const Career = () => {
 
         <div className="relative">
           {/* Vertical Line */}
-          <div className="absolute left-[20px] md:left-1/2 top-0 h-full w-[2px] bg-white/10 md:translate-x-[-1px]"></div>
+          <div className="absolute left-[20px] md:left-1/2 top-0 h-full w-[2px] bg-gradient-to-b from-bio-accent/30 via-white/10 to-bio-accent/30 md:translate-x-[-1px]"></div>
 
-          <div className="space-y-12 relative">
+          <div className="space-y-16 relative">
             {careerItems.map((item, index) => (
               <div 
                 key={index} 
-                className={`animate-on-scroll opacity-0 flex flex-col md:flex-row ${
-                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                className={`animate-on-scroll opacity-0 flex flex-col md:grid md:grid-cols-2 md:gap-8 ${
+                  index % 2 === 0 ? 'md:timeline-right' : 'md:timeline-left'
                 }`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="md:w-1/2 flex justify-center md:justify-end md:pr-12 mb-6 md:mb-0">
-                  <div className="neo-glass-card p-6 rounded-xl w-full max-w-md transform transition-all duration-500 hover:scale-105 backdrop-blur-xl border border-white/10 hover:border-bio-accent/30">
+                <div className={`flex ${index % 2 === 0 ? 'md:justify-end' : 'md:order-2'}`}>
+                  <div className="neo-glass-card p-6 rounded-xl w-full max-w-md transform transition-all duration-500 hover:scale-105 backdrop-blur-xl border border-white/10 hover:border-bio-accent/30 hover:shadow-[0_0_15px_rgba(144,255,52,0.2)]">
                     <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 rounded-full glass-button flex items-center justify-center mr-4 backdrop-blur-xl border border-white/20">
+                      <div className="w-12 h-12 rounded-full glass-button flex items-center justify-center mr-4 backdrop-blur-xl border border-white/20 hover:border-bio-accent/40 hover:shadow-[0_0_10px_rgba(144,255,52,0.3)] transition-all duration-300">
                         {item.icon}
                       </div>
                       <div>
@@ -106,23 +106,30 @@ const Career = () => {
                         <p className="text-white/70 text-sm">{item.organization}</p>
                       </div>
                     </div>
-                    <div className="flex items-center mb-3 text-white/60 text-sm">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      <span>{item.period}</span>
+                    <div className="flex flex-col gap-2">
+                      <div className="flex items-center text-white/60 text-sm">
+                        <Calendar className="h-4 w-4 mr-2 text-bio-accent/70" />
+                        <span>{item.period}</span>
+                      </div>
+                      <div className="flex items-center text-white/60 text-sm">
+                        <MapPin className="h-4 w-4 mr-2 text-bio-accent/70" />
+                        <span>{item.location}</span>
+                      </div>
                     </div>
-                    <p className="text-white/80">{item.location}</p>
-                    {item.details && <p className="text-white/70 mt-2 text-sm">{item.details}</p>}
+                    {item.details && <p className="text-white/70 mt-3 text-sm border-t border-white/10 pt-3">{item.details}</p>}
                   </div>
                 </div>
 
-                <div className="md:w-1/2 flex items-center md:justify-start relative">
+                <div className={`relative py-4 flex ${index % 2 === 0 ? 'md:order-1 justify-end' : 'justify-start'}`}>
                   {/* Circle on timeline */}
-                  <div className="absolute left-0 md:left-auto md:right-0 top-0 w-10 h-10 rounded-full neo-glass-card flex items-center justify-center border-4 border-bio-dark bg-bio-accent/20 z-10 backdrop-blur-xl">
+                  <div className="absolute left-0 md:left-auto md:right-0 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full neo-glass-card flex items-center justify-center border-4 border-bio-dark bg-bio-accent/20 z-10 backdrop-blur-xl hover:shadow-[0_0_15px_rgba(144,255,52,0.3)] transition-all duration-300">
                     <div className="w-3 h-3 rounded-full bg-bio-accent animate-pulse"></div>
                   </div>
                   
-                  {/* Only show logos on bigger screens and on appropriate side */}
-                  <div className="hidden md:block md:w-[120px] md:h-[120px] neo-glass-card rounded-full p-4 overflow-hidden ml-8 md:ml-0 md:mr-8 backdrop-blur-xl border border-white/20 hover:border-bio-accent/30 transition-all duration-300">
+                  {/* Organization Logo */}
+                  <div className={`hidden md:flex items-center justify-center w-[120px] h-[120px] neo-glass-card rounded-full p-4 overflow-hidden ${
+                    index % 2 === 0 ? 'mr-12' : 'ml-12'
+                  } backdrop-blur-xl border border-white/20 hover:border-bio-accent/30 hover:shadow-[0_0_15px_rgba(144,255,52,0.2)] transition-all duration-300`}>
                     <img 
                       src={item.logo} 
                       alt={item.organization} 

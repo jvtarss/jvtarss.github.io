@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { 
   ChevronLeft, 
@@ -9,13 +9,43 @@ import {
   Briefcase, 
   FolderKanban, 
   MessageSquare,
-  Globe
+  Globe,
+  Github
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const Sidebar = () => {
+interface SidebarProps {
+  onToggle?: (collapsed: boolean) => void;
+}
+
+const Sidebar = ({ onToggle }: SidebarProps) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { translations, toggleLanguage, language } = useLanguage();
+
+  useEffect(() => {
+    // Check window width on mount and resize
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsCollapsed(true);
+      }
+    };
+    
+    // Set initial state
+    handleResize();
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    // Call the callback when isCollapsed changes
+    if (onToggle) {
+      onToggle(isCollapsed);
+    }
+  }, [isCollapsed, onToggle]);
 
   const menuItems = [
     { 
@@ -45,6 +75,10 @@ const Sidebar = () => {
     }
   ];
 
+  const toggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
     <div 
       className={`fixed left-0 top-0 h-screen z-50 transition-all duration-300 ease-in-out ${
@@ -63,8 +97,8 @@ const Sidebar = () => {
           
           {/* Toggle button */}
           <button 
-            onClick={() => setIsCollapsed(!isCollapsed)}
-            className="w-8 h-8 rounded-full flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+            onClick={toggleSidebar}
+            className="w-8 h-8 rounded-full flex items-center justify-center text-white hover:bg-white/10 hover:text-bio-accent hover:shadow-[0_0_10px_rgba(144,255,52,0.2)] transition-all duration-300"
             aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
             {isCollapsed ? <ChevronRight className="h-5 w-5" /> : <ChevronLeft className="h-5 w-5" />}
@@ -83,7 +117,7 @@ const Sidebar = () => {
                   duration={800}
                   offset={-70}
                   activeClass="sidebar-menu-item-active"
-                  className={`sidebar-menu-item ${isCollapsed ? 'justify-center px-2' : ''}`}
+                  className={`sidebar-menu-item ${isCollapsed ? 'justify-center px-2' : ''} hover:shadow-[0_0_10px_rgba(144,255,52,0.2)]`}
                 >
                   {item.icon}
                   {!isCollapsed && <span>{item.name}</span>}
@@ -93,16 +127,28 @@ const Sidebar = () => {
           </ul>
         </div>
         
-        {/* Language Toggle */}
-        <div className="px-2 pt-4 border-t border-white/10 mt-4">
+        {/* Footer actions */}
+        <div className="px-2 pt-4 border-t border-white/10 mt-4 space-y-2">
+          {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
-            className={`w-full sidebar-menu-item ${isCollapsed ? 'justify-center px-2' : ''}`}
+            className={`w-full sidebar-menu-item ${isCollapsed ? 'justify-center px-2' : ''} hover:shadow-[0_0_10px_rgba(144,255,52,0.2)]`}
             aria-label={`Switch to ${language === 'en' ? 'Portuguese' : 'English'}`}
           >
             <Globe className="h-5 w-5 text-bio-accent" />
             {!isCollapsed && <span>{translations.switchLanguage}</span>}
           </button>
+          
+          {/* GitHub Link */}
+          <a 
+            href="https://github.com/username" 
+            target="_blank" 
+            rel="noreferrer"
+            className={`w-full sidebar-menu-item ${isCollapsed ? 'justify-center px-2' : ''} hover:shadow-[0_0_10px_rgba(144,255,52,0.2)]`}
+          >
+            <Github className="h-5 w-5 text-bio-accent" />
+            {!isCollapsed && <span>GitHub</span>}
+          </a>
         </div>
       </div>
     </div>
