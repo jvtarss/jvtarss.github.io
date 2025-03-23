@@ -98,7 +98,7 @@ const Sidebar = ({ onToggle }: SidebarProps) => {
           {/* Toggle button */}
           <button 
             onClick={toggleSidebar}
-            className="w-8 h-8 rounded-full flex items-center justify-center text-white hover:bg-white/10 hover:text-bio-accent hover:shadow-[0_0_10px_rgba(144,255,52,0.2)] transition-all duration-300"
+            className="w-8 h-8 rounded-full flex items-center justify-center text-white hover:bg-white/10 hover:text-bio-accent hover:shadow-[0_0_10px_rgba(70,208,164,0.2)] transition-all duration-300"
             aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
             {isCollapsed ? <ChevronRight className="h-5 w-5" /> : <ChevronLeft className="h-5 w-5" />}
@@ -117,7 +117,7 @@ const Sidebar = ({ onToggle }: SidebarProps) => {
                   duration={800}
                   offset={-70}
                   activeClass="sidebar-menu-item-active"
-                  className={`sidebar-menu-item ${isCollapsed ? 'justify-center px-2' : ''} hover:shadow-[0_0_10px_rgba(144,255,52,0.2)]`}
+                  className={`sidebar-menu-item ${isCollapsed ? 'justify-center px-2' : ''} hover:shadow-[0_0_10px_rgba(70,208,164,0.2)]`}
                 >
                   {item.icon}
                   {!isCollapsed && <span>{item.name}</span>}
@@ -132,7 +132,7 @@ const Sidebar = ({ onToggle }: SidebarProps) => {
           {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
-            className={`w-full sidebar-menu-item ${isCollapsed ? 'justify-center px-2' : ''} hover:shadow-[0_0_10px_rgba(144,255,52,0.2)]`}
+            className={`w-full sidebar-menu-item ${isCollapsed ? 'justify-center px-2' : ''} hover:shadow-[0_0_10px_rgba(70,208,164,0.2)]`}
             aria-label={`Switch to ${language === 'en' ? 'Portuguese' : 'English'}`}
           >
             <Globe className="h-5 w-5 text-bio-accent" />
@@ -144,7 +144,7 @@ const Sidebar = ({ onToggle }: SidebarProps) => {
             href="https://github.com/username" 
             target="_blank" 
             rel="noreferrer"
-            className={`w-full sidebar-menu-item ${isCollapsed ? 'justify-center px-2' : ''} hover:shadow-[0_0_10px_rgba(144,255,52,0.2)]`}
+            className={`w-full sidebar-menu-item ${isCollapsed ? 'justify-center px-2' : ''} hover:shadow-[0_0_10px_rgba(70,208,164,0.2)]`}
           >
             <Github className="h-5 w-5 text-bio-accent" />
             {!isCollapsed && <span>GitHub</span>}
