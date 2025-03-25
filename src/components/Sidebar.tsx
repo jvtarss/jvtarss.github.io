@@ -13,6 +13,7 @@ import {
   Github
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 
 interface SidebarProps {
   onToggle?: (collapsed: boolean) => void;
@@ -20,7 +21,7 @@ interface SidebarProps {
 
 const Sidebar = ({ onToggle }: SidebarProps) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const { translations, toggleLanguage, language } = useLanguage();
+  const { translations, changeLanguage, language } = useLanguage();
 
   useEffect(() => {
     // Check window width on mount and resize
@@ -129,15 +130,32 @@ const Sidebar = ({ onToggle }: SidebarProps) => {
         
         {/* Footer actions */}
         <div className="px-2 pt-4 border-t border-white/10 mt-4 space-y-2">
-          {/* Language Toggle */}
-          <button
-            onClick={toggleLanguage}
-            className={`w-full sidebar-menu-item ${isCollapsed ? 'justify-center px-2' : ''} hover:shadow-[0_0_10px_rgba(70,208,164,0.2)]`}
-            aria-label={`Switch to ${language === 'en' ? 'Portuguese' : 'English'}`}
-          >
-            <Globe className="h-5 w-5 text-bio-accent" />
-            {!isCollapsed && <span>{translations.switchLanguage}</span>}
-          </button>
+          {/* Language Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                className={`w-full sidebar-menu-item ${isCollapsed ? 'justify-center px-2' : ''} hover:shadow-[0_0_10px_rgba(70,208,164,0.2)]`}
+                aria-label="Change language"
+              >
+                <Globe className="h-5 w-5 text-bio-accent" />
+                {!isCollapsed && <span>{translations.switchLanguage}</span>}
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="bg-bio-dark border border-white/10 text-white">
+              <DropdownMenuItem 
+                onClick={() => changeLanguage('en')}
+                className={`cursor-pointer hover:bg-white/10 ${language === 'en' ? 'text-bio-accent' : ''}`}
+              >
+                {translations.english}
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => changeLanguage('pt')}
+                className={`cursor-pointer hover:bg-white/10 ${language === 'pt' ? 'text-bio-accent' : ''}`}
+              >
+                {translations.portuguese}
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           
           {/* GitHub Link */}
           <a 

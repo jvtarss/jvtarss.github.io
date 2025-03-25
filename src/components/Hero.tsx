@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Github, Linkedin, ArrowDown, Code, GraduationCap, Beaker } from 'lucide-react';
+import { Github, Linkedin, ArrowDown, FileText, GraduationCap, Database } from 'lucide-react';
 import { Link } from 'react-scroll';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -32,9 +32,9 @@ const Hero = () => {
   }, []);
 
   const skills = [
-    { icon: <Code className="h-5 w-5" />, name: "Full Stack Development" },
-    { icon: <GraduationCap className="h-5 w-5" />, name: "Bioinformatics" },
-    { icon: <Beaker className="h-5 w-5" />, name: "Bioprocess Engineering" }
+    { icon: <Database className="h-5 w-5" />, name: "Bioinformatics" },
+    { icon: <GraduationCap className="h-5 w-5" />, name: "Bioprocess Engineering" },
+    { icon: <FileText className="h-5 w-5" />, name: "Data Analysis" }
   ];
 
   return (
@@ -77,23 +77,23 @@ const Hero = () => {
             
             <div className="flex flex-wrap gap-4 py-6">
               <div className="tech-stack-container">
-                <h3 className="text-sm text-white/70 mb-2 font-dm-mono">Frontend</h3>
+                <h3 className="text-sm text-white/70 mb-2 font-dm-mono">Bioinformatics</h3>
                 <div className="flex flex-wrap gap-2">
                   <img 
-                    src="https://skillicons.dev/icons?i=react" 
-                    alt="React" 
+                    src="https://skillicons.dev/icons?i=py" 
+                    alt="Python" 
                     className="w-12 h-12 animate-fade-in tech-icon hover:scale-110 hover:shadow-[0_0_10px_rgba(70,208,164,0.5)] transition-all duration-300" 
                     style={{ animationDelay: '0.6s' }} 
                   />
                   <img 
-                    src="https://skillicons.dev/icons?i=ts" 
-                    alt="TypeScript" 
+                    src="https://skillicons.dev/icons?i=r" 
+                    alt="R" 
                     className="w-12 h-12 animate-fade-in tech-icon hover:scale-110 hover:shadow-[0_0_10px_rgba(70,208,164,0.5)] transition-all duration-300" 
                     style={{ animationDelay: '0.7s' }} 
                   />
                   <img 
-                    src="https://skillicons.dev/icons?i=tailwind" 
-                    alt="Tailwind" 
+                    src="https://skillicons.dev/icons?i=bash" 
+                    alt="Bash" 
                     className="w-12 h-12 animate-fade-in tech-icon hover:scale-110 hover:shadow-[0_0_10px_rgba(70,208,164,0.5)] transition-all duration-300" 
                     style={{ animationDelay: '0.8s' }} 
                   />
@@ -101,23 +101,23 @@ const Hero = () => {
               </div>
               
               <div className="tech-stack-container">
-                <h3 className="text-sm text-white/70 mb-2 font-dm-mono">Backend & Tools</h3>
+                <h3 className="text-sm text-white/70 mb-2 font-dm-mono">Data Analysis</h3>
                 <div className="flex flex-wrap gap-2">
                   <img 
-                    src="https://skillicons.dev/icons?i=nodejs" 
-                    alt="Node.js" 
+                    src="https://skillicons.dev/icons?i=jupyter" 
+                    alt="Jupyter" 
                     className="w-12 h-12 animate-fade-in tech-icon hover:scale-110 hover:shadow-[0_0_10px_rgba(70,208,164,0.5)] transition-all duration-300" 
                     style={{ animationDelay: '0.9s' }} 
                   />
                   <img 
-                    src="https://skillicons.dev/icons?i=python" 
-                    alt="Python" 
+                    src="https://skillicons.dev/icons?i=matlab" 
+                    alt="MATLAB" 
                     className="w-12 h-12 animate-fade-in tech-icon hover:scale-110 hover:shadow-[0_0_10px_rgba(70,208,164,0.5)] transition-all duration-300" 
                     style={{ animationDelay: '1.0s' }} 
                   />
                   <img 
-                    src="https://skillicons.dev/icons?i=docker" 
-                    alt="Docker" 
+                    src="https://skillicons.dev/icons?i=postgres" 
+                    alt="PostgreSQL" 
                     className="w-12 h-12 animate-fade-in tech-icon hover:scale-110 hover:shadow-[0_0_10px_rgba(70,208,164,0.5)] transition-all duration-300" 
                     style={{ animationDelay: '1.1s' }} 
                   />
@@ -172,7 +172,7 @@ const Hero = () => {
                   <div className="space-y-4 text-center">
                     <h3 className="text-xl font-bold text-white">João Teixeira</h3>
                     <p className="text-bio-accent font-medium">Bioinformatics Specialist</p>
-                    <p className="text-white/70 text-sm">Combining biology, data science, and software engineering to solve complex problems in genomics and biotechnology.</p>
+                    <p className="text-white/70 text-sm">Analyzing and interpreting complex biological data to drive research innovation and solve biotechnology challenges.</p>
                     <div className="pt-4">
                       <div className="inline-flex items-center px-3 py-1 rounded-full text-xs bg-bio-accent/20 text-bio-accent border border-bio-accent/30">
                         Available for collaborations

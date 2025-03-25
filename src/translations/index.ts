@@ -16,8 +16,8 @@ export const enUS = {
   // About
   aboutTitle: "About Me",
   aboutSubtitle: "Get to Know Me Better",
-  aboutDescription: "I'm passionate about creating innovative solutions. With a background in full-stack development and a deep understanding of biological systems, I bring a unique perspective to every project. My goal is to merge technology and science to solve complex problems and make a positive impact.",
-  aboutRoleTitle: "I'm a software engineer and molecular biology researcher",
+  aboutDescription: "I'm passionate about analyzing biological data and developing computational solutions for biotechnology applications. With expertise in bioinformatics and a background in bioprocess engineering, I bring a unique perspective to biological data analysis and research.",
+  aboutRoleTitle: "I'm a bioinformatician and bioprocess engineering student",
   techStack: "Tech Stack",
   viewGitHub: "View GitHub Profile",
   
@@ -46,7 +46,9 @@ export const enUS = {
   backToTop: "Back to top",
   
   // Language
-  switchLanguage: "PT"
+  switchLanguage: "Language",
+  english: "English",
+  portuguese: "Portuguese"
 };
 
 export const ptBR = {
@@ -59,15 +61,15 @@ export const ptBR = {
   
   // Hero
   heroTitle: "Olá, sou João Teixeira",
-  heroSubtitle: "Bioinformático & Engenheiro de Bioprocessos",
+  heroSubtitle: "Bioinformata & Engenheiro de Bioprocessos",
   heroDescription: "Combinando biologia computacional com biotecnologia para resolver problemas biológicos complexos",
   learnMore: "Saiba mais",
   
   // About
   aboutTitle: "Sobre Mim",
   aboutSubtitle: "Conheça-me Melhor",
-  aboutDescription: "Sou apaixonado por criar soluções inovadoras. Com experiência em desenvolvimento full-stack e um profundo entendimento de sistemas biológicos, trago uma perspectiva única para cada projeto. Meu objetivo é unir tecnologia e ciência para resolver problemas complexos e causar um impacto positivo.",
-  aboutRoleTitle: "Sou engenheiro de software e pesquisador em biologia molecular",
+  aboutDescription: "Sou apaixonado por analisar dados biológicos e desenvolver soluções computacionais para aplicações biotecnológicas. Com experiência em bioinformática e formação em engenharia de bioprocessos, trago uma perspectiva única para análise de dados biológicos e pesquisa.",
+  aboutRoleTitle: "Sou bioinformata e estudante de engenharia de bioprocessos",
   techStack: "Stack Tecnológica",
   viewGitHub: "Ver Perfil no GitHub",
   
@@ -96,5 +98,7 @@ export const ptBR = {
   backToTop: "Voltar ao topo",
   
   // Language
-  switchLanguage: "EN"
+  switchLanguage: "Idioma",
+  english: "Inglês",
+  portuguese: "Português"
 };
