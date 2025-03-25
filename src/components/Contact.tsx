@@ -12,7 +12,7 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   
   const contactRef = useRef<HTMLDivElement>(null);
-  const { translations } = useLanguage();
+  const { translations, language } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -83,7 +83,7 @@ const Contact = () => {
               </h3>
               
               <p className="text-white/80 mb-8">
-                {translations.language === 'en' 
+                {language === 'en' 
                   ? 'Feel free to reach out if you\'re looking for a collaborator, have a question, or just want to connect.'
                   : 'Sinta-se à vontade para entrar em contato se estiver procurando um colaborador, tiver uma pergunta ou apenas quiser se conectar.'}
               </p>
