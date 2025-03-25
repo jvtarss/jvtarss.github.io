@@ -92,6 +92,17 @@ export const ptBR = {
   selectSubject: "Selecione um assunto",
   message: "Mensagem",
   send: "Enviar",
+  getInTouch: "Entre em Contato",
+  location: "Localização",
+  followMe: "Siga-me",
+  sendMessage: "Envie uma Mensagem",
+  messageSent: "Mensagem Enviada!",
+  thankYou: "Obrigado por entrar em contato. Retornarei assim que possível.",
+  sending: "Enviando...",
+  collaboration: "Colaboração",
+  projectInquiry: "Consulta de Projeto",
+  jobOpportunity: "Oportunidade de Trabalho",
+  other: "Outro",
   
   // Footer
   allRightsReserved: "Todos os direitos reservados.",

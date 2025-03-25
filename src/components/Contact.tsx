@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Mail, MapPin, Send } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -11,6 +12,7 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   
   const contactRef = useRef<HTMLDivElement>(null);
+  const { language, translations } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,19 +67,25 @@ const Contact = () => {
       <div className="container mx-auto">
         <div className="mb-16 text-center animate-on-scroll opacity-0">
           <span className="inline-block glass-card py-1 px-3 rounded-full text-sm text-bio-accent mb-3">
-            Contact
+            {language === 'en' ? 'Contact' : 'Contato'}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Let's Connect</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            {language === 'en' ? 'Let\'s Connect' : 'Vamos Conectar'}
+          </h2>
           <div className="h-1 w-20 bg-bio-accent mx-auto rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5 animate-on-scroll opacity-0">
             <div className="glass-card p-8 rounded-xl h-full">
-              <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
+              <h3 className="text-2xl font-bold mb-6">
+                {language === 'en' ? 'Get in Touch' : 'Entre em Contato'}
+              </h3>
               
               <p className="text-white/80 mb-8">
-                Feel free to reach out if you're looking for a collaborator, have a question, or just want to connect.
+                {language === 'en' 
+                  ? 'Feel free to reach out if you\'re looking for a collaborator, have a question, or just want to connect.'
+                  : 'Sinta-se à vontade para entrar em contato se estiver procurando um colaborador, tiver uma pergunta ou apenas quiser se conectar.'}
               </p>
               
               <div className="space-y-6">
@@ -98,16 +106,20 @@ const Contact = () => {
                     <MapPin className="h-5 w-5 text-bio-accent" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium mb-1">Location</h4>
+                    <h4 className="text-lg font-medium mb-1">
+                      {language === 'en' ? 'Location' : 'Localização'}
+                    </h4>
                     <p className="text-white/70">
-                      Gurupi, Tocantins, Brazil
+                      Gurupi, Tocantins, Brasil
                     </p>
                   </div>
                 </div>
               </div>
               
               <div className="mt-12">
-                <h4 className="text-lg font-medium mb-4">Follow Me</h4>
+                <h4 className="text-lg font-medium mb-4">
+                  {language === 'en' ? 'Follow Me' : 'Siga-me'}
+                </h4>
                 <div className="flex space-x-4">
                   <a href="https://github.com/username" target="_blank" rel="noreferrer" className="social-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
@@ -126,7 +138,9 @@ const Contact = () => {
 
           <div className="lg:col-span-7 animate-on-scroll opacity-0" style={{ animationDelay: '0.3s' }}>
             <div className="glass-card p-8 rounded-xl">
-              <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
+              <h3 className="text-2xl font-bold mb-6">
+                {language === 'en' ? 'Send a Message' : 'Envie uma Mensagem'}
+              </h3>
               
               {submitted ? (
                 <div className="glass-card bg-bio-accent/20 border-bio-accent/30 p-6 rounded-lg text-center">
@@ -135,14 +149,22 @@ const Contact = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                   </div>
-                  <h4 className="text-xl font-medium mb-2">Message Sent!</h4>
-                  <p className="text-white/80">Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                  <h4 className="text-xl font-medium mb-2">
+                    {language === 'en' ? 'Message Sent!' : 'Mensagem Enviada!'}
+                  </h4>
+                  <p className="text-white/80">
+                    {language === 'en' 
+                      ? 'Thank you for reaching out. I\'ll get back to you as soon as possible.'
+                      : 'Obrigado por entrar em contato. Retornarei assim que possível.'}
+                  </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                      <label htmlFor="name" className="block text-white/80 mb-2 text-sm">Name</label>
+                      <label htmlFor="name" className="block text-white/80 mb-2 text-sm">
+                        {language === 'en' ? 'Name' : 'Nome'}
+                      </label>
                       <input
                         type="text"
                         id="name"
@@ -167,7 +189,9 @@ const Contact = () => {
                   </div>
                   
                   <div className="mb-6">
-                    <label htmlFor="subject" className="block text-white/80 mb-2 text-sm">Subject</label>
+                    <label htmlFor="subject" className="block text-white/80 mb-2 text-sm">
+                      {language === 'en' ? 'Subject' : 'Assunto'}
+                    </label>
                     <select
                       id="subject"
                       value={subject}
@@ -175,16 +199,28 @@ const Contact = () => {
                       className="w-full glass-card bg-white/5 border-white/10 focus:border-bio-accent/50 p-3 rounded-lg text-white outline-none transition-all"
                       required
                     >
-                      <option value="" className="bg-bio-dark">Select a subject</option>
-                      <option value="collaboration" className="bg-bio-dark">Collaboration</option>
-                      <option value="project" className="bg-bio-dark">Project Inquiry</option>
-                      <option value="hiring" className="bg-bio-dark">Job Opportunity</option>
-                      <option value="other" className="bg-bio-dark">Other</option>
+                      <option value="" className="bg-bio-dark">
+                        {language === 'en' ? 'Select a subject' : 'Selecione um assunto'}
+                      </option>
+                      <option value="collaboration" className="bg-bio-dark">
+                        {language === 'en' ? 'Collaboration' : 'Colaboração'}
+                      </option>
+                      <option value="project" className="bg-bio-dark">
+                        {language === 'en' ? 'Project Inquiry' : 'Consulta de Projeto'}
+                      </option>
+                      <option value="hiring" className="bg-bio-dark">
+                        {language === 'en' ? 'Job Opportunity' : 'Oportunidade de Trabalho'}
+                      </option>
+                      <option value="other" className="bg-bio-dark">
+                        {language === 'en' ? 'Other' : 'Outro'}
+                      </option>
                     </select>
                   </div>
                   
                   <div className="mb-6">
-                    <label htmlFor="message" className="block text-white/80 mb-2 text-sm">Message</label>
+                    <label htmlFor="message" className="block text-white/80 mb-2 text-sm">
+                      {language === 'en' ? 'Message' : 'Mensagem'}
+                    </label>
                     <textarea
                       id="message"
                       value={message}
@@ -208,12 +244,12 @@ const Contact = () => {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                        Sending...
+                        {language === 'en' ? 'Sending...' : 'Enviando...'}
                       </>
                     ) : (
                       <>
                         <Send className="mr-2 h-5 w-5" />
-                        Send
+                        {language === 'en' ? 'Send' : 'Enviar'}
                       </>
                     )}
                   </button>

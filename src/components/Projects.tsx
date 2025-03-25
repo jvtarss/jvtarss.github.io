@@ -141,7 +141,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1676776295520-065802f5659a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       technologies: ["MySQL", "PHP", "HTML", "CSS", "Typescript", "DBeaver", "mirdeep2", "intaRNA", "miRanda", "einverted", "RNAFold"],
       institution: "Universidade Federal de Minas Gerais (UFMG), Universidade Estadual do Norte Fluminense (UENF), University of Texas",
-      date: "2026-02",
+      date: "TBA",
       url: "https://llfisbiom.uft.edu.br/e-m-a"
     }
   ];
@@ -189,24 +189,16 @@ const Projects = () => {
                   <h4 className="text-sm font-medium mb-2 text-white/80">{language === 'en' ? 'Technologies:' : 'Tecnologias:'}</h4>
                   <div className="flex flex-wrap gap-2 mb-3">
                     {project.technologies.slice(0, 5).map(tech => (
-                      <span key={tech} className="text-xs py-1 px-2 rounded-md bg-white/10 text-white/70">
+                      <span key={tech} className="text-xs py-1 px-2 rounded-md bg-bio-accent/30 text-white border border-bio-accent/40">
                         {tech}
                       </span>
                     ))}
                     {project.technologies.length > 5 && (
-                      <span className="text-xs py-1 px-2 rounded-md bg-white/10 text-white/70">
+                      <span className="text-xs py-1 px-2 rounded-md bg-bio-accent/30 text-white border border-bio-accent/40">
                         +{project.technologies.length - 5}
                       </span>
                     )}
                   </div>
-                  
-                  {/* Institution */}
-                  {project.institution && (
-                    <div className="mb-2">
-                      <h4 className="text-sm font-medium text-white/80">{language === 'en' ? 'Institution:' : 'Instituição:'}</h4>
-                      <p className="text-xs text-white/70">{project.institution}</p>
-                    </div>
-                  )}
                   
                   {/* Date */}
                   {project.date && (
