@@ -8,10 +8,12 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import BioinformaticsBackground from '../components/BioinformaticsBackground';
 import Sidebar from '../components/Sidebar';
+import LoadingScreen from '../components/LoadingScreen';
 import { LanguageProvider } from '../contexts/LanguageContext';
 
 const Index = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [loading, setLoading] = useState(true);
   
   useEffect(() => {
     // Scroll to top when component mounts
@@ -22,24 +24,32 @@ const Index = () => {
     setSidebarCollapsed(collapsed);
   };
 
+  const handleLoadingFinished = () => {
+    setLoading(false);
+  };
+
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-bio-dark relative">
-        <BioinformaticsBackground />
-        <Sidebar onToggle={handleSidebarToggle} />
-        <div 
-          className={`transition-all duration-300 ease-in-out ${
-            sidebarCollapsed ? 'pl-16' : 'pl-0 md:pl-16 lg:pl-64'
-          }`}
-        >
-          <Hero />
-          <About />
-          <Career />
-          <Projects />
-          <Contact />
-          <Footer />
+      {loading ? (
+        <LoadingScreen onFinished={handleLoadingFinished} />
+      ) : (
+        <div className="min-h-screen bg-bio-dark relative">
+          <BioinformaticsBackground />
+          <Sidebar onToggle={handleSidebarToggle} />
+          <div 
+            className={`transition-all duration-300 ease-in-out ${
+              sidebarCollapsed ? 'pl-16' : 'pl-0 md:pl-16 lg:pl-64'
+            }`}
+          >
+            <Hero />
+            <About />
+            <Career />
+            <Projects />
+            <Contact />
+            <Footer />
+          </div>
         </div>
-      </div>
+      )}
     </LanguageProvider>
   );
 };

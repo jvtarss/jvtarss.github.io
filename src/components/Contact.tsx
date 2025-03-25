@@ -12,7 +12,7 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   
   const contactRef = useRef<HTMLDivElement>(null);
-  const { language, translations } = useLanguage();
+  const { translations } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -67,10 +67,10 @@ const Contact = () => {
       <div className="container mx-auto">
         <div className="mb-16 text-center animate-on-scroll opacity-0">
           <span className="inline-block glass-card py-1 px-3 rounded-full text-sm text-bio-accent mb-3">
-            {language === 'en' ? 'Contact' : 'Contato'}
+            {translations.contact}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            {language === 'en' ? 'Let\'s Connect' : 'Vamos Conectar'}
+            {translations.contactTitle}
           </h2>
           <div className="h-1 w-20 bg-bio-accent mx-auto rounded-full"></div>
         </div>
@@ -79,11 +79,11 @@ const Contact = () => {
           <div className="lg:col-span-5 animate-on-scroll opacity-0">
             <div className="glass-card p-8 rounded-xl h-full">
               <h3 className="text-2xl font-bold mb-6">
-                {language === 'en' ? 'Get in Touch' : 'Entre em Contato'}
+                {translations.getInTouch}
               </h3>
               
               <p className="text-white/80 mb-8">
-                {language === 'en' 
+                {translations.language === 'en' 
                   ? 'Feel free to reach out if you\'re looking for a collaborator, have a question, or just want to connect.'
                   : 'Sinta-se à vontade para entrar em contato se estiver procurando um colaborador, tiver uma pergunta ou apenas quiser se conectar.'}
               </p>
@@ -95,8 +95,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-medium mb-1">Email</h4>
-                    <a href="mailto:email@example.com" className="text-white/70 hover:text-bio-accent transition-colors">
-                      joao@example.com
+                    <a href="mailto:br.joao.aires@gmail.com" className="text-white/70 hover:text-bio-accent transition-colors">
+                      br.joao.aires@gmail.com
                     </a>
                   </div>
                 </div>
@@ -107,7 +107,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-medium mb-1">
-                      {language === 'en' ? 'Location' : 'Localização'}
+                      {translations.location}
                     </h4>
                     <p className="text-white/70">
                       Gurupi, Tocantins, Brasil
@@ -118,7 +118,7 @@ const Contact = () => {
               
               <div className="mt-12">
                 <h4 className="text-lg font-medium mb-4">
-                  {language === 'en' ? 'Follow Me' : 'Siga-me'}
+                  {translations.followMe}
                 </h4>
                 <div className="flex space-x-4">
                   <a href="https://github.com/username" target="_blank" rel="noreferrer" className="social-icon">
@@ -139,7 +139,7 @@ const Contact = () => {
           <div className="lg:col-span-7 animate-on-scroll opacity-0" style={{ animationDelay: '0.3s' }}>
             <div className="glass-card p-8 rounded-xl">
               <h3 className="text-2xl font-bold mb-6">
-                {language === 'en' ? 'Send a Message' : 'Envie uma Mensagem'}
+                {translations.sendMessage}
               </h3>
               
               {submitted ? (
@@ -150,12 +150,10 @@ const Contact = () => {
                     </svg>
                   </div>
                   <h4 className="text-xl font-medium mb-2">
-                    {language === 'en' ? 'Message Sent!' : 'Mensagem Enviada!'}
+                    {translations.messageSent}
                   </h4>
                   <p className="text-white/80">
-                    {language === 'en' 
-                      ? 'Thank you for reaching out. I\'ll get back to you as soon as possible.'
-                      : 'Obrigado por entrar em contato. Retornarei assim que possível.'}
+                    {translations.thankYou}
                   </p>
                 </div>
               ) : (
@@ -163,7 +161,7 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                       <label htmlFor="name" className="block text-white/80 mb-2 text-sm">
-                        {language === 'en' ? 'Name' : 'Nome'}
+                        {translations.name}
                       </label>
                       <input
                         type="text"
@@ -190,7 +188,7 @@ const Contact = () => {
                   
                   <div className="mb-6">
                     <label htmlFor="subject" className="block text-white/80 mb-2 text-sm">
-                      {language === 'en' ? 'Subject' : 'Assunto'}
+                      {translations.subject}
                     </label>
                     <select
                       id="subject"
@@ -200,26 +198,26 @@ const Contact = () => {
                       required
                     >
                       <option value="" className="bg-bio-dark">
-                        {language === 'en' ? 'Select a subject' : 'Selecione um assunto'}
+                        {translations.selectSubject}
                       </option>
                       <option value="collaboration" className="bg-bio-dark">
-                        {language === 'en' ? 'Collaboration' : 'Colaboração'}
+                        {translations.collaboration}
                       </option>
                       <option value="project" className="bg-bio-dark">
-                        {language === 'en' ? 'Project Inquiry' : 'Consulta de Projeto'}
+                        {translations.projectInquiry}
                       </option>
                       <option value="hiring" className="bg-bio-dark">
-                        {language === 'en' ? 'Job Opportunity' : 'Oportunidade de Trabalho'}
+                        {translations.jobOpportunity}
                       </option>
                       <option value="other" className="bg-bio-dark">
-                        {language === 'en' ? 'Other' : 'Outro'}
+                        {translations.other}
                       </option>
                     </select>
                   </div>
                   
                   <div className="mb-6">
                     <label htmlFor="message" className="block text-white/80 mb-2 text-sm">
-                      {language === 'en' ? 'Message' : 'Mensagem'}
+                      {translations.message}
                     </label>
                     <textarea
                       id="message"
@@ -244,12 +242,12 @@ const Contact = () => {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                        {language === 'en' ? 'Sending...' : 'Enviando...'}
+                        {translations.sending}
                       </>
                     ) : (
                       <>
                         <Send className="mr-2 h-5 w-5" />
-                        {language === 'en' ? 'Send' : 'Enviar'}
+                        {translations.send}
                       </>
                     )}
                   </button>
