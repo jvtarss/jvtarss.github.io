@@ -34,9 +34,7 @@ const About = () => {
     };
   }, []);
 
-  const bioinformaticsTools = ['python', 'r', 'bash'];
-  const dataAnalysisTools = ['jupyter', 'mongodb', 'postgres'];
-  const developmentTools = ['git', 'linux', 'vscode'];
+  const techTools = ['python', 'r', 'bash', 'git', 'linux', 'vscode', 'jupyter', 'mongodb', 'postgres', 'mysql'];
 
   return (
     <section id="about" className="section-padding" ref={aboutRef}>
@@ -72,51 +70,16 @@ const About = () => {
             <div className="space-y-6 mb-8">
               <h4 className="text-xl font-medium mb-4">{translations.techStack}</h4>
               
-              <div className="space-y-4">
-                <div>
-                  <h5 className="text-sm text-white/70 mb-2 font-dm-mono">Bioinformatics</h5>
-                  <div className="flex flex-wrap gap-4">
-                    {bioinformaticsTools.map((tool) => (
-                      <div key={tool} className="p-2 glass-card rounded-lg hover:shadow-[0_0_15px_rgba(70,208,164,0.3)] transition-all duration-300">
-                        <img 
-                          src={`https://skillicons.dev/icons?i=${tool}`} 
-                          alt={tool} 
-                          className="w-12 h-12"
-                        />
-                      </div>
-                    ))}
+              <div className="flex flex-wrap gap-4">
+                {techTools.map((tool) => (
+                  <div key={tool} className="p-2 glass-card rounded-lg hover:shadow-[0_0_15px_rgba(70,208,164,0.3)] transition-all duration-300">
+                    <img 
+                      src={`https://skillicons.dev/icons?i=${tool}`} 
+                      alt={tool} 
+                      className="w-12 h-12"
+                    />
                   </div>
-                </div>
-                
-                <div>
-                  <h5 className="text-sm text-white/70 mb-2 font-dm-mono">Data Analysis</h5>
-                  <div className="flex flex-wrap gap-4">
-                    {dataAnalysisTools.map((tool) => (
-                      <div key={tool} className="p-2 glass-card rounded-lg hover:shadow-[0_0_15px_rgba(70,208,164,0.3)] transition-all duration-300">
-                        <img 
-                          src={`https://skillicons.dev/icons?i=${tool}`} 
-                          alt={tool} 
-                          className="w-12 h-12"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                
-                <div>
-                  <h5 className="text-sm text-white/70 mb-2 font-dm-mono">Development Tools</h5>
-                  <div className="flex flex-wrap gap-4">
-                    {developmentTools.map((tool) => (
-                      <div key={tool} className="p-2 glass-card rounded-lg hover:shadow-[0_0_15px_rgba(70,208,164,0.3)] transition-all duration-300">
-                        <img 
-                          src={`https://skillicons.dev/icons?i=${tool}`} 
-                          alt={tool} 
-                          className="w-12 h-12"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
             

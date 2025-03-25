@@ -1,10 +1,16 @@
 
-import { useLocation, Link as RouterLink } from "react-router-dom";
+import { useLocation, Link as RouterLink, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { Home, ArrowLeft } from "lucide-react";
 
 const NotFound = () => {
   const location = useLocation();
+
+  // Check if we're on the index page but with a different URL
+  // This helps when opening in a new tab
+  if (location.pathname === "/") {
+    return <Navigate to="/" replace />;
+  }
 
   useEffect(() => {
     console.error(
