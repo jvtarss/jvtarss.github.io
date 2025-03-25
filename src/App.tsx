@@ -16,7 +16,7 @@ const App: React.FC = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/jvtarss.github.io">
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/index" element={<Navigate to="/" replace />} />
