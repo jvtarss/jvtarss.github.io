@@ -1,6 +1,5 @@
 
 import React, { useEffect, useRef } from 'react';
-import { CheckCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const About = () => {
@@ -35,10 +34,9 @@ const About = () => {
     };
   }, []);
 
-  const skills = [
-    'Python', 'R', 'Shell/Bash', 'Git', 'Linux',
-    'VSCode', 'VIM', 'GitHub', 'MySQL', 'SQLite'
-  ];
+  const bioinformaticsTools = ['python', 'r', 'bash'];
+  const dataAnalysisTools = ['jupyter', 'mongodb', 'postgres'];
+  const developmentTools = ['git', 'linux', 'vscode'];
 
   return (
     <section id="about" className="section-padding" ref={aboutRef}>
@@ -71,22 +69,58 @@ const About = () => {
               {translations.aboutDescription}
             </p>
             
-            <div className="mb-8">
+            <div className="space-y-6 mb-8">
               <h4 className="text-xl font-medium mb-4">{translations.techStack}</h4>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-                {skills.map((skill, index) => (
-                  <div 
-                    key={index} 
-                    className="neo-glass-card py-3 px-4 text-center rounded-lg hover:border-bio-accent/50 transition-all duration-300 animate-on-scroll opacity-0"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <span className="text-sm font-dm-mono">{skill}</span>
+              
+              <div className="space-y-4">
+                <div>
+                  <h5 className="text-sm text-white/70 mb-2 font-dm-mono">Bioinformatics</h5>
+                  <div className="flex flex-wrap gap-4">
+                    {bioinformaticsTools.map((tool) => (
+                      <div key={tool} className="p-2 glass-card rounded-lg hover:shadow-[0_0_15px_rgba(70,208,164,0.3)] transition-all duration-300">
+                        <img 
+                          src={`https://skillicons.dev/icons?i=${tool}`} 
+                          alt={tool} 
+                          className="w-12 h-12"
+                        />
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
+                
+                <div>
+                  <h5 className="text-sm text-white/70 mb-2 font-dm-mono">Data Analysis</h5>
+                  <div className="flex flex-wrap gap-4">
+                    {dataAnalysisTools.map((tool) => (
+                      <div key={tool} className="p-2 glass-card rounded-lg hover:shadow-[0_0_15px_rgba(70,208,164,0.3)] transition-all duration-300">
+                        <img 
+                          src={`https://skillicons.dev/icons?i=${tool}`} 
+                          alt={tool} 
+                          className="w-12 h-12"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div>
+                  <h5 className="text-sm text-white/70 mb-2 font-dm-mono">Development Tools</h5>
+                  <div className="flex flex-wrap gap-4">
+                    {developmentTools.map((tool) => (
+                      <div key={tool} className="p-2 glass-card rounded-lg hover:shadow-[0_0_15px_rgba(70,208,164,0.3)] transition-all duration-300">
+                        <img 
+                          src={`https://skillicons.dev/icons?i=${tool}`} 
+                          alt={tool} 
+                          className="w-12 h-12"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
             
-            <div className="flex flex-wrap gap-4 animate-on-scroll opacity-0" style={{ animationDelay: '0.5s' }}>
+            <div className="animate-on-scroll opacity-0" style={{ animationDelay: '0.5s' }}>
               <a
                 href="https://github.com/username"
                 target="_blank"
