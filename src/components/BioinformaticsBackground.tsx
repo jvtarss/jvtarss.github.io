@@ -14,34 +14,7 @@ const BioinformaticsBackground: React.FC = () => {
     let width = window.innerWidth;
     let height = window.innerHeight;
     
-    // Set canvas dimensions
-    const resizeCanvas = () => {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
-      
-      // Re-create triangles when resizing
-      createTriangles();
-    };
-    
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    
-    // Mouse position tracking
-    let mouseX = width / 2;
-    let mouseY = height / 2;
-    let targetMouseX = width / 2;
-    let targetMouseY = height / 2;
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      targetMouseX = e.clientX;
-      targetMouseY = e.clientY;
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    
-    // Triangle class
+    // Triangle class and collections
     interface Triangle {
       x1: number;
       y1: number;
@@ -64,7 +37,7 @@ const BioinformaticsBackground: React.FC = () => {
     
     const triangles: Triangle[] = [];
     
-    // Create triangles
+    // Create triangles function - defined before it's called
     const createTriangles = () => {
       triangles.length = 0;
       
@@ -229,7 +202,32 @@ const BioinformaticsBackground: React.FC = () => {
       }
     };
     
-    createTriangles();
+    // Set canvas dimensions
+    const resizeCanvas = () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+      
+      // Re-create triangles when resizing
+      createTriangles();
+    };
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Mouse position tracking
+    let mouseX = width / 2;
+    let mouseY = height / 2;
+    let targetMouseX = width / 2;
+    let targetMouseY = height / 2;
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      targetMouseX = e.clientX;
+      targetMouseY = e.clientY;
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
     
     // Animation loop
     const animate = () => {
