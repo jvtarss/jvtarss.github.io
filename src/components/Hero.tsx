@@ -55,7 +55,7 @@ const Hero = () => {
             
             <div className="flex space-x-4">
               <a
-                href="https://github.com/username"
+                href="https://github.com/jvtarss"
                 target="_blank"
                 rel="noreferrer"
                 className="social-icon backdrop-blur-xl border border-white/20 hover:border-bio-accent/50 hover:shadow-[0_0_15px_rgba(70,208,164,0.3)] transition-all duration-300"
@@ -64,7 +64,7 @@ const Hero = () => {
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com/in/username"
+                href="https://www.linkedin.com/in/jo%C3%A3o-vitor-aires-teixeira-55b97b225/"
                 target="_blank"
                 rel="noreferrer"
                 className="social-icon backdrop-blur-xl border border-white/20 hover:border-bio-accent/50 hover:shadow-[0_0_15px_rgba(70,208,164,0.3)] transition-all duration-300"
