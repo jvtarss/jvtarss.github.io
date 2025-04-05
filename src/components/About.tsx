@@ -85,7 +85,7 @@ const About = () => {
             
             <div className="animate-on-scroll opacity-0" style={{ animationDelay: '0.5s' }}>
               <a
-                href="https://github.com/username"
+                href="https://github.com/jvtarss"
                 target="_blank"
                 rel="noreferrer"
                 className="accent-button inline-flex items-center px-6 py-3 rounded-lg backdrop-blur-xl hover:shadow-[0_0_15px_rgba(70,255,140,0.5)] transition-all duration-500"
