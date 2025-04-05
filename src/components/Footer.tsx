@@ -40,7 +40,7 @@ const Footer = () => {
           
           <div className="flex space-x-6 mb-6 md:mb-0">
             <a
-              href="https://github.com/username"
+              href="https://github.com/jvtarss"
               target="_blank"
               rel="noreferrer"
               className="social-icon backdrop-blur-md hover:border-bio-accent/50 transition-all duration-300"
@@ -49,7 +49,7 @@ const Footer = () => {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com/in/username"
+              href="https://www.linkedin.com/in/jo%C3%A3o-vitor-aires-teixeira-55b97b225/"
               target="_blank"
               rel="noreferrer"
               className="social-icon backdrop-blur-md hover:border-bio-accent/50 transition-all duration-300"
