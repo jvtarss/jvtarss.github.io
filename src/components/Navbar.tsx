@@ -49,7 +49,7 @@ const Navbar = () => {
           className="cursor-pointer"
         >
           <div className="flex items-center">
-            <span className="text-bio-accent font-dm-mono text-2xl font-bold tracking-tighter hover:opacity-80 transition-opacity">JT</span>
+            <img src="/logo.svg" alt="Logo" className="h-8 w-auto hover:opacity-80 transition-opacity" />
             <span className="ml-2 text-white font-dm-mono text-lg">BioPortfolio</span>
           </div>
         </Link>
